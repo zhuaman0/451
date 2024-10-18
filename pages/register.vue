@@ -5,9 +5,12 @@
 			<form action="">
 				<input type="text" placeholder="Full name">
 				<input type="text" placeholder="User name">
+				<div class="two-in-one">
+					<input class="two" type="text" placeholder="Phone number">
+					<input class="two" type="text" placeholder="Password">
+				</div>
 				<input type="text" placeholder="Email">
-				<input type="text" placeholder="Phone number">
-				<input type="text" placeholder="Password">
+				
 
                 <!-- <div class="checkbox">
                     <input type="checkbox" id="customCheckbox">
@@ -19,6 +22,10 @@
 			<div class="google">
 				<img src="../assets/img/Group.png" width="26" height="26">
 				<a href="">Sign in with Google</a>
+			</div>
+			<div class="new-acc">
+				<p>You already have an account?</p>
+				<NuxtLink to="/"><a href="">Sign in</a></NuxtLink>
 			</div>
 		</main>
 		<img src="../assets/img/Contact Image  --lummi.png" width="420" height="100%" class="login-img"/>
@@ -62,6 +69,15 @@
 		font-weight: 700;
 		padding: 0 10px;
         color: rgb(192, 192, 192);
+	}
+
+	.two-in-one{
+		display: flex;
+		width: 412px;
+		justify-content: space-between;
+	}
+	.two-in-one .two{
+		width: 200px;
 	}
 
 /* #customCheckbox {
