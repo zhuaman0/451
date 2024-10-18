@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gotham', sans-serif;
+}
+
+@font-face {
+    font-family: Gotham;
+    src: url('../fonts/Gotham-font-family/Gotham/');
+    font-weight: normal;
+    font-style: normal;
+}

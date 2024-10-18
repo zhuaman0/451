@@ -1,20 +1,24 @@
 <template>
 	<section class="all">
         <main class="signin">
-			<h1>Sign in to your account</h1>
+			<h1>Create an account</h1>
 			<form action="">
+				<input type="text" placeholder="Full name">
 				<input type="text" placeholder="User name">
 				<input type="text" placeholder="Email">
+				<input type="text" placeholder="Phone number">
 				<input type="text" placeholder="Password">
+
+                <!-- <div class="checkbox">
+                    <input type="checkbox" id="customCheckbox">
+                    <label for="customCheckbox">remember me</label>
+                </div> -->
+                
 			</form> 
 			<button>Sign in</button>
 			<div class="google">
 				<img src="../assets/img/Group.png" width="26" height="26">
 				<a href="">Sign in with Google</a>
-			</div>
-			<div class="new-acc">
-				<p>Still don't have an account?</p>
-				<NuxtLink to="register"><a href="">Create account</a></NuxtLink>
 			</div>
 		</main>
 		<img src="../assets/img/Contact Image  --lummi.png" width="420" height="100%" class="login-img"/>
@@ -57,7 +61,58 @@
 		font-size: 15px;
 		font-weight: 700;
 		padding: 0 10px;
+        color: rgb(192, 192, 192);
 	}
+
+/* #customCheckbox {
+    display: none;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox label {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: lowercase;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+	gap: 8px;
+}
+
+.checkbox label::before {
+    content: "";
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    border: 1px solid white;
+    background-color: transparent;
+    border-radius: 2px; 
+    transition: background-color 0.3s ease;
+}
+
+.checkbox label::after {
+    content: "";
+    position: relative;
+    right: 135px;
+    bottom: 2px;
+    width: 7px;
+    height: 12px;
+    border: solid rgb(254, 254, 254);
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    display: none; 
+} */
+
+#customCheckbox:checked + label::after {
+    display: block;
+}
+
 	.signin button{
 		width: 480px;
 		height: 50px;
@@ -86,6 +141,7 @@
 			font-weight: 600;
 		}
 	}
+
 	.signin .new-acc{
 		display: flex;
 		gap: 6px;
