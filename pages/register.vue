@@ -3,15 +3,15 @@
         <main class="signin">
 			<h1>Create an account</h1>
 			<form @submit.prevent="register">
-    <input v-model="first_name" type="text" placeholder="Full name">
-    <input v-model="second_name" type="text" placeholder="User name">
-    <div class="two-in-one">
-        <input v-model="phone_number" class="two" type="text" placeholder="Phone number">
-        <input v-model="password" class="two" type="password" placeholder="Password">
-    </div>
-    <input v-model="email" type="email" placeholder="Email">
-    <button type="submit">Sign in</button>
-	</form>
+    			<input v-model="first_name" type="text" placeholder="Full name">
+    			<input v-model="second_name" type="text" placeholder="User name">
+    			<div class="two-in-one">
+    			    <input v-model="phone_number" class="two" type="text" placeholder="Phone number">
+    			    <input v-model="password" class="two" type="password" placeholder="Password">
+    			</div>
+    			<input v-model="email" type="email" placeholder="Email">
+    			<button type="submit">Sign in</button>
+			</form>
 
 			<div class="google">
 				<img src="../assets/img/Group.png" width="26" height="26">
@@ -22,7 +22,7 @@
 				<NuxtLink to="login">Sign in</NuxtLink>
 			</div>
 		</main>
-		<img src="../assets/img/Contact Image  --lummi.png" width="560" height="100%" class="login-img"/>
+		<img src="../assets/img/Contact Image  --lummi.png" width="420" height="100%" class="login-img"/>
     </section>
 </template>
 
@@ -52,6 +52,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 20px;
+		align-items: center;
 	}
 	.signin form input{
 		width: 412px;
@@ -179,6 +180,15 @@
 			display: none;
 		}
 
+		.two-in-one{
+		display: flex;
+		width: 340px;
+		justify-content: space-between;
+		}
+		.two-in-one .two{
+		width: 160px;
+		}
+
 		.all{
 		height: 896px;
         background-color: #222222;
@@ -198,10 +208,10 @@
 		height: 896px;
 	}
 	.signin button{
-		width: 90%;
+		width: 340px;
 	}
 	.signin .google{
-		width: 90%;
+		width: 340px;
 	}
 	.signin h1{
 		font-size: 32px;
