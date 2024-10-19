@@ -2,30 +2,24 @@
 	<section class="all">
         <main class="signin">
 			<h1>Create an account</h1>
-			<form action="">
-				<input type="text" placeholder="Full name">
-				<input type="text" placeholder="User name">
-				<div class="two-in-one">
-					<input class="two" type="text" placeholder="Phone number">
-					<input class="two" type="text" placeholder="Password">
-				</div>
-				<input type="text" placeholder="Email">
-				
+			<form @submit.prevent="register">
+    			<input v-model="first_name" type="text" placeholder="Full name">
+    			<input v-model="second_name" type="text" placeholder="User name">
+    			<div class="two-in-one">
+    			    <input v-model="phone_number" class="two" type="text" placeholder="Phone number">
+    			    <input v-model="password" class="two" type="password" placeholder="Password">
+    			</div>
+    			<input v-model="email" type="email" placeholder="Email">
+    			<button type="submit">Sign in</button>
+			</form>
 
-                <!-- <div class="checkbox">
-                    <input type="checkbox" id="customCheckbox">
-                    <label for="customCheckbox">remember me</label>
-                </div> -->
-                
-			</form> 
-			<nuxt-link to=""><button>Sign in</button></nuxt-link>
 			<div class="google">
 				<img src="../assets/img/Group.png" width="26" height="26">
 				<a href="">Sign in with Google</a>
 			</div>
 			<div class="new-acc">
 				<p>You already have an account?</p>
-				<NuxtLink to="login"><a href="">Sign in</a></NuxtLink>
+				<NuxtLink to="login">Sign in</NuxtLink>
 			</div>
 		</main>
 		<img src="../assets/img/Contact Image  --lummi.png" width="420" height="100%" class="login-img"/>
@@ -58,6 +52,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 20px;
+		align-items: center;
 	}
 	.signin form input{
 		width: 412px;
@@ -185,6 +180,15 @@
 			display: none;
 		}
 
+		.two-in-one{
+		display: flex;
+		width: 340px;
+		justify-content: space-between;
+		}
+		.two-in-one .two{
+		width: 160px;
+		}
+
 		.all{
 		height: 896px;
         background-color: #222222;
@@ -204,10 +208,10 @@
 		height: 896px;
 	}
 	.signin button{
-		width: 90%;
+		width: 340px;
 	}
 	.signin .google{
-		width: 90%;
+		width: 340px;
 	}
 	.signin h1{
 		font-size: 32px;
@@ -232,3 +236,33 @@ definePageMeta({
 	components: "",
 })
 </script> -->
+
+
+<script setup>
+import { ref } from 'vue';
+import axios from 'axios';
+
+const first_name = ref('')
+const email = ref('')
+const second_name = ref('')
+const phone_number = ref('')
+const password = ref('')
+const router = useRouter();
+
+const register = async () => {
+	try {
+		await axios.post('http://localhost:3001/register', { 
+  first_name: first_name.value, 
+  second_name: second_name.value,
+  phone_number: phone_number.value, 
+  password: password.value,
+  email: email.value
+});
+		alert('Registration successful, please log in');
+		router.push('/');
+	}
+	catch(err) {
+		console.log(err)
+	}
+}
+</script>
