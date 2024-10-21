@@ -16,7 +16,7 @@
 			<NuxtLink to="/register"><a href="#">Create account</a></NuxtLink>
 		 </div>
 	  </main>
-	  <img src="../assets/img/Contact Image --lummi.png" width="420" height="100%" class="login-img" />
+	  <img src="../assets/img/Contact Image  --lummi.png" width="420" height="100%" class="login-img" />
 	</section>
 </template>
 
@@ -45,6 +45,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
+	align-items: center;
 }
 .signin form input{
 	width: 412px;

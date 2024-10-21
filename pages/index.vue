@@ -2,6 +2,8 @@
 	<div>
 		<nuxt-link to="register"><button>asdf</button></nuxt-link>
 		<nuxt-link to="profile">Go to profile</nuxt-link>
+		<br>
+		<nuxt-link to="landing">Land go</nuxt-link>
 	</div>
 </template>
 

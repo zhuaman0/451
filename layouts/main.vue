@@ -16,7 +16,7 @@
 .grid-container {
 	display: grid;
 	grid-template-rows: auto 1fr;
-	grid-template-columns: 250px 1fr;
+	grid-template-columns: 280px 1fr;
 	height: 100vh;
 }
 .app-header {
@@ -25,10 +25,17 @@
 }
 .app-aside {
 	z-index: 10;
-	background-color: white;
+	border-right: 1px solid #444444;
+	background-color: #222222;
+   height: calc(100vh - 100px);
+   width: 280px ;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 .app-main {
-	background-color: #f8f9fa;
+	background-color: #222222;
+	width: 100%;
 }
 </style>
 
