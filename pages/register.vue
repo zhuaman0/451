@@ -241,7 +241,7 @@ const router = useRouter();
 
 const register = async () => {
 	try {
-		await axios.post('http://localhost:3001/register', { 
+	await axios.post('http://localhost:3001/register', { 
   first_name: first_name.value, 
   second_name: second_name.value,
   phone_number: phone_number.value, 
