@@ -1,8 +1,12 @@
 <template>
    <header>
       <div class="all-logo">
-         <img src="../assets/img/logo.png" alt="" class="logo-img">
-         <div class="logo-name">451 GRADUS</div>
+         <nuxt-link to="/">
+				<div class="head-main">
+					<img src="../assets/img/logo.png" alt="" class="logo-img">
+            <div class="logo-name">451 GRADUS</div>
+				</div>
+			</nuxt-link>
       </div>
    </header>
 </template>
@@ -35,7 +39,12 @@ header {
    font-weight: bold;
    font-size: 20px;
 }
-
-
-
+.head-main {
+   display: flex;
+   align-items: center;
+	gap: 15px;
+}
+.nuxt-link {
+	text-decoration: none
+}
 </style>

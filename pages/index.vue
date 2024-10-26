@@ -4,6 +4,7 @@
 		<nuxt-link to="profile">Go to profile</nuxt-link>
 		<br>
 		<nuxt-link to="landing">Land go</nuxt-link>
+		<button @click="generatePDF">Прочитать PDF</button>
 	</div>
 </template>
 
@@ -21,4 +22,18 @@ button {
 definePageMeta({
 	layout: 'main'
 })
+
+import { ref } from 'vue';
+import { jsPDF } from 'jspdf';
+
+// Функция для создания PDF
+const generatePDF = () => {
+  const doc = new jsPDF();
+
+  // Добавляем текст в PDF
+  doc.text("Привет, это тестовый PDF!", 10, 10);
+
+  // Сохраняем PDF файл
+  doc.save('example.pdf');
+};
 </script>

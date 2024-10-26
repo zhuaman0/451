@@ -157,15 +157,21 @@ const router = useRouter();
 
 const login = async () => {
   try {
-	const response = await axios.post('http://localhost:3001/login', {
-		email: email.value,
-		password: password.value
-	});
-	localStorage.setItem('token', response.data.token);
-	localStorage.setItem('user', JSON.stringify(response.data.user));
-	router.push('profile');
+    const response = await axios.post('http://localhost:3001/login', {
+      email: email.value,
+      password: password.value
+    });
+    localStorage.setItem('token', response.data.token);
+    localStorage.setItem('user', JSON.stringify({
+      id: response.data.user.id,
+      first_name: response.data.user.first_name,
+      second_name: response.data.user.second_name
+    }));
+
+    // Redirect to the profile page
+    router.push('/profile');
   } catch (error) {
-	alert('Login failed: ' + error.response.data.message);
+    alert('Login failed: ' + error.response.data.message);
   }
 };
 </script>

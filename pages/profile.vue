@@ -1,44 +1,45 @@
 <template>
 	<main class="profile">
-		<div class="profile-content">
-		<div class="up-prof">
-			<h2 class="prof-nick">Alish</h2>
+	  <div class="profile-content">
+		 <div class="up-prof">
+			<h2 class="prof-nick">{{ user?.first_name }} {{ user?.second_name }}</h2> <!-- Display user's name -->
+ 
 			<div class="info-img">
-				<div class="full-info">
-					<div class="row">
-						<div class="column">
-							<div>Full Name: Alsiher Zhunisov</div>
-							<div>Team: 'Tea-ішерс'</div>
-							<div>Wins: 3</div>
-							<div>Total points: 64</div>
-						</div>
-						<div class="column">
-							<div>Member since: Oct 2023</div>
-							<div>Last seen: 13sep 2024 </div>
-							<div>All games: 8</div>
-							<div>Leaderboard Place: 9</div>
-						</div>
+			  <div class="full-info">
+				 <div class="row">
+					<div class="column">
+					  <div>Full Name: {{ user?.first_name }} {{ user?.second_name }}</div>
+					  <div>Team: 'Tea-ішерс'</div>
+					  <div>Wins: 3</div>
+					  <div>Total points: 64</div>
 					</div>
-				</div>
+					<div class="column">
+					  <div>Member since: Oct 2023</div>
+					  <div>Last seen: 13sep 2024 </div>
+					  <div>All games: 8</div>
+					  <div>Leaderboard Place: 9</div>
+					</div>
+				 </div>
+			  </div>
+			 <div class="info_wit">
 				<img src="" alt="">
+				<button @click="logout()" >Log out</button>
+			 </div>
 			</div>
 			<div class="balance">Balance: 1000KZT <span style="color: yellow;" >+</span></div>
 			<div class="all-prog">
-						<div class="cr-book">Current book: Ten Niggers</div>
-				<div>Progress:</div>
-				<div class="own-prog">48% <div class="prog-line-full"><div class="prog-cur"></div></div></div>
-				<div>Team progress</div>
-								<div class="own-prog">32% <div class="prog-line-full"><div class="prog-cur" style="  background: linear-gradient(90deg, #6270F2, #0094FF); width: 32%;
-"></div></div></div>
-				<div class="own-prog">73% <div class="prog-line-full"><div class="prog-cur" style="  background: linear-gradient(90deg, #59FA90, #3CA33A); width: 73%;
-"></div></div></div>
-
+			  <div class="cr-book">Current book: Ten Niggers</div>
+			  <div>Progress:</div>
+			  <div class="own-prog">48% <div class="prog-line-full"><div class="prog-cur"></div></div></div>
+			  <div>Team progress</div>
+			  <div class="own-prog">32% <div class="prog-line-full"><div class="prog-cur" style="background: linear-gradient(90deg, #6270F2, #0094FF); width: 32%;"></div></div></div>
+			  <div class="own-prog">73% <div class="prog-line-full"><div class="prog-cur" style="background: linear-gradient(90deg, #59FA90, #3CA33A); width: 73%;"></div></div></div>
 			</div>
-		</div>
-
-		</div>
+		 </div>
+	  </div>
 	</main>
-</template>
+ </template>
+ 
 
 <style scoped>
 .profile{
@@ -68,6 +69,20 @@
 	align-items: center;
 	width: 100%;
 	justify-content: space-between;
+}
+
+.info_wit {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.info_wit button {
+	background-color: red;
+	color: white;
+	padding: 10px 10px;
+	border: none;
+	font-size: 12px;
+	border-radius: 10px;
 }
 
 .row{	
@@ -132,4 +147,25 @@
 definePageMeta({
 	layout: 'main'
 })
+
+import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+
+const user = ref(null);
+const router = useRouter();
+
+// Retrieve user data from localStorages
+onMounted(() => {	
+  const userData = JSON.parse(localStorage.getItem('user'));
+  if (userData) {
+    user.value = userData;
+  }
+});
+
+const logout = () => {
+  localStorage.removeItem('token');
+  localStorage.removeItem('user');
+  router.push('/login'); 
+};
+
 </script>
