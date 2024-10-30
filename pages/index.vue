@@ -105,6 +105,11 @@
 definePageMeta({
 	layout: 'chat'
 })
+definePageMeta({
+	layout: 'main'
+})
+
+import { ref } from 'vue';
 </script>
 
 <style scoped>
@@ -234,10 +239,3 @@ definePageMeta({
 }
 </style>
 
-<script setup>
-definePageMeta({
-	layout: 'main'
-})
-
-import { ref } from 'vue';
-</script>

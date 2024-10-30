@@ -1,11 +1,11 @@
 <template>
-	<div>
+	<div class="body">
 		<div class="result_container">
 			<div class="top_result">
 				<div class="top top-1">
 					<div class="title_top">
 						<div class="title_name">
-							<img src="https://img.freepik.com/free-psd/expressive-woman-gesturing_23-2150198673.jpg" alt="">
+							<img src="/assets/img/kukashka.jpg" alt="">
 							<h1>Kuka x2</h1>
 						</div>
 						<div class="title_cup">
@@ -49,7 +49,7 @@
 				<div class="top top-1">
 					<div class="title_top">
 						<div class="title_name">
-							<img src="https://img.freepik.com/free-psd/expressive-woman-gesturing_23-2150198673.jpg" alt="">
+							<img src="/assets/img/kukashka.jpg" alt="">
 							<h1>Kuka x2</h1>
 						</div>
 						<div class="title_cup">
@@ -93,7 +93,7 @@
 				<div class="top top-1">
 					<div class="title_top">
 						<div class="title_name">
-							<img src="https://img.freepik.com/free-psd/expressive-woman-gesturing_23-2150198673.jpg" alt="">
+							<img src="/assets/img/kukashka.jpg" alt="">
 							<h1>Kuka x2</h1>
 						</div>
 						<div class="title_cup">
@@ -137,17 +137,45 @@
 			</div>
 			<div class="top_groups"></div>
 		</div>
+		<div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Place</th>
+                    <th>Team name</th>
+                    <th>Last gamePoints</th>
+                    <th>Winrate</th>
+                    <th>Overall Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>4</td><td>Kuka x2</td><td>11</td><td>1</td><td>63</td></tr>
+                <tr><td>5</td><td>Pythons</td><td>12</td><td>2</td><td>61</td></tr>
+                <tr><td>6</td><td>Leaders</td><td>17</td><td>3</td><td>60</td></tr>
+                <tr><td>7</td><td>Leaders</td><td>17</td><td>3</td><td>60</td></tr>
+                <tr><td>8</td><td>Leaders</td><td>17</td><td>3</td><td>60</td></tr>
+                <tr><td>9</td><td>Leaders</td><td>17</td><td>3</td><td>60</td></tr>
+                <tr><td>10</td><td>Leaders</td><td>17</td><td>3</td><td>60</td></tr>
+                <tr><td>11</td><td>Leaders</td><td>17</td><td>3</td><td>60</td></tr>
+                <tr><td>12</td><td>Leaders</td><td>17</td><td>3</td><td>60</td></tr>
+                <tr><td>13</td><td>Leaders</td><td>17</td><td>3</td><td>60</td></tr>
+                <tr><td>14</td><td>Leaders</td><td>17</td><td>3</td><td>60</td></tr>
+                <tr><td>15</td><td>Leaders</td><td>17</td><td>3</td><td>60</td></tr>
+            </tbody>
+        </table>
+    </div>
 	</div>
 </template>
 <style scoped>
+
 .result_container {
-	padding: 50px 130px;
+	/* padding: 50px 130px; */
 }
 .top {
 	background-color: #1B1B1E;
 	border-radius: 15px;
-	width: 400px;
-	padding: 20px 20px;
+	width: 380px;
+	padding: 18px 18px;
 }
 .title_name img {
 	width: 50px;
@@ -170,7 +198,8 @@
 }
 .top_result {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
+	gap: 30px;
 }
 .title_top {
 	display: flex;
@@ -208,6 +237,43 @@
 	justify-content: space-between;
 	margin-top: 40px;
 }
+
+.table-container {
+    background-color: transparent;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #333333;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+td {
+    background-color: #2D2D2D;
+    color: #ffffff;
+}
+
+tr:nth-child(even) td {
+    background-color: #252525;
+}
+
+table, th, td {
+    border: 1px solid #333333;
+}
+
+
+
 </style>
 
 <script setup>

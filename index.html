@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Interface</title>
+    <style>
+        /* styles.css */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1c1c1c;
+}
+
+.chat-container {
+    display: flex;
+    height: 100vh;
+    color: #ffffff;
+}
+
+.sidebar {
+    width: 25%;
+    background-color: #2c2c2c;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #444;
+    cursor: pointer;
+}
+
+.contact .avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #888;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.contact .avatar.online {
+    border: 2px solid #4CAF50;
+}
+
+.contact-info h4 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.contact-info p {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: #bbb;
+}
+
+.time {
+    margin-left: auto;
+    font-size: 12px;
+    color: #999;
+}
+
+.chat-main {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    background-color: #1c1c1c;
+}
+
+.header {
+    padding: 15px;
+    background-color: #2c2c2c;
+    border-bottom: 1px solid #444;
+    display: flex;
+    align-items: center;
+}
+
+.chat-header-info h4 {
+    margin: 0;
+}
+
+.chat-header-info span {
+    color: #4CAF50;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.chat-box {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 60%;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.message.sent {
+    background-color: #4a4a4a;
+    align-self: flex-end;
+}
+
+.message.received {
+    background-color: #333333;
+    align-self: flex-start;
+}
+
+.message-input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #2c2c2c;
+    border-top: 1px solid #444;
+}
+
+.message-input input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #444;
+    color: white;
+    outline: none;
+    margin-right: 10px;
+}
+
+.message-input button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="sidebar">
+            <div class="contact">
+                <div class="avatar"></div>
+                <div class="contact-info">
+                    <h4>Nureke</h4>
+                    <p>оќысай маѓза</p>
+                </div>
+                <span class="time">14:41</span>
+            </div>
+            <div class="contact">
+                <div class="avatar online"></div>
+                <div class="contact-info">
+                    <h4>Yerzhan</h4>
+                    <p>окысам айкайым барго</p>
+                </div>
+                <span class="time">14:41</span>
+            </div>
+            <!-- Add more contacts as needed -->
+        </div>
+        
+        <div class="chat-main">
+            <div class="header">
+                <div class="chat-header-info">
+                    <h4>Nureke</h4>
+                    <span>online</span>
+                </div>
+            </div>
+
+            <div class="chat-box" id="chat-box">
+                <div class="message received">Hi, Alisher. How are you?</div>
+                <div class="message received">I think we need to meet and discuss about the book</div>
+                <div class="message received">Yerzhan will come also</div>
+                <div class="message received">Library, 13:30. Don't be late</div>
+                <div class="message sent">оќысай маѓза</div>
+                <!-- Add more messages as needed -->
+            </div>
+            
+            <div class="message-input">
+                <input type="text" id="message" placeholder="Type a message..." />
+                <button onclick="sendMessage()">➤</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        // script.js
+
+function sendMessage() {
+    const chatBox = document.getElementById("chat-box");
+    const messageInput = document.getElementById("message");
+    const messageText = messageInput.value.trim();
+
+    if (messageText === "") return; // Prevent sending empty messages
+
+    // Create and append a new message
+    const messageElement = document.createElement("div");
+    messageElement.classList.add("message", "sent");
+    messageElement.innerText = messageText;
+    chatBox.appendChild(messageElement);
+    
+    // Clear input field
+    messageInput.value = "";
+
+    // Scroll chat to the bottom
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    // Optionally simulate a response after a delay
+    setTimeout(() => {
+        const responseMessage = document.createElement("div");
+        responseMessage.classList.add("message", "received");
+        responseMessage.innerText = "Received: " + messageText;
+        chatBox.appendChild(responseMessage);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }, 1000);
+}
+
+    </script>
+</body>
+</html>
