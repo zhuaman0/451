@@ -1,21 +1,22 @@
 <template>
 	<div class="grid-container">
 		<header class="app-header">
-			<AppHeader/>
+			<AppHeader @openQuiz="showModal = true" />
 		</header>
-		<aside class="app-aside">
+		<aside :style="{width: asideWidth + 'px'}" class="app-aside">
 			<AppAside/>
 		</aside>	
 		<main class="app-main">
 			<slot/>
 		</main>
+		<QuizModal v-if="showModal" @close="showModal = false" />
 	</div>
 </template>
 
 <style scoped>
 .grid-container {
 	display: grid;
-	grid-template-rows: auto 1fr;
+	grid-template-rows: auto 1fr;						
 	grid-template-columns: 280px 1fr;
 	height: 100vh;
 }
@@ -42,4 +43,12 @@
 <script setup>
 import AppHeader from '@/components/AppHeader.vue';
 import AppAside from '@/components/AppAside.vue';
+import { ref } from 'vue';
+import QuizModal from '@/components/QuizModal.vue';
+const asideWidth = ref(280); 
+const smaller = () => {
+  asideWidth.value = 100;
+};
+
+const showModal = ref(false);
 </script>

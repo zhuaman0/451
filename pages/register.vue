@@ -259,7 +259,7 @@ const register = async () => {
   email: email.value
 });
 		alert('Registration successful, please log in');
-		router.push('/');
+		router.push('/login');
 	}
 	catch(err) {
 		console.log(err)

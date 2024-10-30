@@ -10,7 +10,11 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@nuxt/icon": "^1.6.1",
+=======
+    "aos": "^2.3.4",
+>>>>>>> c428f6fd13d19e6acff89543bd3dd11ad5d7cf1f
     "axios": "^1.7.7",
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
