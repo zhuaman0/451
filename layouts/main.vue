@@ -28,7 +28,7 @@
 	z-index: 10;
 	border-right: 1px solid #444444;
 	background-color: #222222;
-   height: calc(100vh - 100px);
+   height: 100%;
    width: 280px ;
 	display: flex;
 	flex-direction: column;

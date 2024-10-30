@@ -233,23 +233,3 @@ definePageMeta({
 	border-radius: 15px;
 }
 </style>
-
-<script setup>
-definePageMeta({
-	layout: 'main'
-})
-
-import { ref } from 'vue';
-import { jsPDF } from 'jspdf';
-
-// Функция для создания PDF
-const generatePDF = () => {
-  const doc = new jsPDF();
-
-  // Добавляем текст в PDF
-  doc.text("Привет, это тестовый PDF!", 10, 10);
-
-  // Сохраняем PDF файл
-  doc.save('example.pdf');
-};
-</script>
