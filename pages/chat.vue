@@ -1,6 +1,8 @@
 <template>
-	<div>
-		h1
+	<div class="chat">
+		<div class="chat-side">
+
+		</div>
 	</div>
 </template>
 
@@ -10,6 +12,17 @@ definePageMeta({
 })
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
+.chat {
+	height: 100%;
+	width: 100%;
+}
+.chat-side {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 150px;
+	background-color: #222222;
+}
 
 </style>
