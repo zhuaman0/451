@@ -4,10 +4,10 @@
         <img class="logo" src="../assets/img/logo-451.png" width="70">
             
         <nav class="nav">
-            <a href="#" id="main">Main</a>
-            <a href="#" id="about">About Us</a>
+            <a href="#" id="main" class="active">Main</a>
+            <a href="#" id="features">Features</a>
             <a href="#" id="rules">Rules</a>
-            <a href="#" id="sign">Sign In</a>
+            <a href="#" id="sign">Sign in</a>
         </nav>
     
         <div class="hamburger" id="hamburger">
@@ -18,9 +18,9 @@
     
         <div class="mobile-nav" id="mobileNav">
             <a href="#" id="main">Main</a>
-            <a href="#" id="about">About Us</a>
+            <a href="#" id="features">Features</a>
             <a href="#" id="rules">Rules</a>
-            <a href="#" id="sign">Sign In</a>
+            <a href="#" id="sign">Sign in</a>
         </div>
     </header>
     </div>
@@ -35,24 +35,30 @@
         background-color: transparent;
         color: white;
         height: 100px;
-        padding: 0 50px;
+        padding: 0 60px;
     }
 
     .nav {
         display: flex;
-        gap: 35px;
+        gap: 50px;
+        align-items: center;
     }
 
     .nav a {
         text-decoration: none;
         color: white;
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 600;
     }
-    
-    .nav a:hover {
-        background-color: #555;
-        border-radius: 4px;
+    .nav a.active {
+        background-color: #FF7F42;
+        color: white;
+        width: 100px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
     }
 
     .hamburger {

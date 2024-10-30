@@ -197,8 +197,8 @@ Log-out</button>
 }
 .active{
 background: linear-gradient(45deg, #ff6600, #ffcc33);
-    -webkit-background-clip: text;  /* Для поддержки в WebKit браузерах */
-    -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent;
       font-size: 17px;
       font-weight: 500;
 }
