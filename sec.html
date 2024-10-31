@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Interface</title>
+    <style>
+        * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    color: #fff;
+}
+
+.chat-app {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 30%;
+    background-color: #1e1e1e;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.chat-item {
+    padding: 15px;
+    border-bottom: 1px solid #444;
+    cursor: pointer;
+}
+
+.chat-item.active, .chat-item:hover {
+    background-color: #333;
+}
+
+.chat-name {
+    font-weight: bold;
+}
+
+.chat-message {
+    color: #888;
+    font-size: 0.9em;
+}
+
+.chat-window {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    background-color: #2a2a2a;
+}
+
+.chat-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.message {
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 60%;
+}
+
+.received {
+    background-color: #444;
+    align-self: flex-start;
+}
+
+.sent {
+    background-color: #0084ff;
+    align-self: flex-end;
+    color: #fff;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+    background-color: #1e1e1e;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.chat-input button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #0084ff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background-color: #005bb5;
+}
+
+    </style>
+</head>
+<body>
+    <div class="chat-app">
+        <!-- Sidebar for chat list -->
+        <div class="sidebar">
+            <div class="chat-item active" onclick="openChat('chat1')">
+                <div class="chat-name">Nureke</div>
+                <div class="chat-message">оқысай маға...</div>
+            </div>
+            <div class="chat-item" onclick="openChat('chat2')">
+                <div class="chat-name">Yerzhan</div>
+                <div class="chat-message">оқысай маға...</div>
+            </div>
+            <div class="chat-item" onclick="openChat('chat3')">
+                <div class="chat-name">Community Chat</div>
+                <div class="chat-message">Мына кітап...</div>
+            </div>
+            <div class="chat-item" onclick="openChat('chat4')">
+                <div class="chat-name">Support</div>
+                <div class="chat-message">We'll solve...</div>
+            </div>
+        </div>
+
+        <!-- Main chat window -->
+        <div class="chat-window">
+            <div id="chat1" class="chat-content">
+                <div class="message received">Hi, Alisher. How are you?</div>
+                <div class="message received">I think we need to meet and discuss about the book</div>
+                <div class="message received">Yerzhan will come also</div>
+                <div class="message received">Library, 13:30. Don't be late</div>
+                <div class="message sent">I'm good. You?</div>
+                <div class="message sent">Ok, but I didn't start to read yet</div>
+                <div class="message sent">I will come to the library at lunch ASAP</div>
+            </div>
+            <!-- Additional chats (hidden by default) -->
+            <div id="chat2" class="chat-content hidden">Chat 2 content here...</div>
+            <div id="chat3" class="chat-content hidden">Chat 3 content here...</div>
+            <div id="chat4" class="chat-content hidden">Chat 4 content here...</div>
+
+            <!-- Input area -->
+            <div class="chat-input">
+                <input type="text" id="messageInput" placeholder="Type a message..." onkeypress="sendMessage(event)">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script >
+        function openChat(chatId) {
+    document.querySelectorAll('.chat-content').forEach(chat => chat.classList.add('hidden'));
+    document.getElementById(chatId).classList.remove('hidden');
+}
+
+function sendMessage(event) {
+    if (event.type === 'keypress' && event.key !== 'Enter') return;
+
+    const messageInput = document.getElementById('messageInput');
+    const messageText = messageInput.value.trim();
+
+    if (messageText === "") return;
+
+    // Create a new message element
+    const newMessage = document.createElement('div');
+    newMessage.classList.add('message', 'sent');
+    newMessage.textContent = messageText;
+
+    // Add the message to the current chat content
+    const activeChat = document.querySelector('.chat-content:not(.hidden)');
+    activeChat.appendChild(newMessage);
+
+    // Clear the input
+    messageInput.value = "";
+
+    // Scroll to the bottom of the chat
+    activeChat.scrollTop = activeChat.scrollHeight;
+}
+
+    </script>
+</body>
+</html>

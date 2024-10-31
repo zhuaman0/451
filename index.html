@@ -21,7 +21,7 @@ body, html {
 }
 
 .sidebar {
-    width: 25%;
+    width: 20%;
     background-color: #2c2c2c;
     padding: 15px;
     overflow-y: auto;
@@ -93,8 +93,12 @@ body, html {
     flex: 1;
     padding: 15px;
     overflow-y: auto;
-    display: flex;
+    display: none; /* Hide chat boxes by default */
     flex-direction: column;
+}
+
+.chat-box.active {
+    display: flex; /* Only display the active chat box */
 }
 
 .message {
@@ -147,8 +151,9 @@ body, html {
 </head>
 <body>
     <div class="chat-container">
+        <!-- Sidebar with Contact List -->
         <div class="sidebar">
-            <div class="contact">
+            <div class="contact" onclick="switchChat('nureke')">
                 <div class="avatar"></div>
                 <div class="contact-info">
                     <h4>Nureke</h4>
@@ -156,7 +161,7 @@ body, html {
                 </div>
                 <span class="time">14:41</span>
             </div>
-            <div class="contact">
+            <div class="contact" onclick="switchChat('yerzhan')">
                 <div class="avatar online"></div>
                 <div class="contact-info">
                     <h4>Yerzhan</h4>
@@ -164,26 +169,44 @@ body, html {
                 </div>
                 <span class="time">14:41</span>
             </div>
-            <!-- Add more contacts as needed -->
+            <div class="contact" onclick="switchChat('group')">
+                <div class="avatar"></div>
+                <div class="contact-info">
+                    <h4>Group Chat</h4>
+                    <p>Group conversation...</p>
+                </div>
+                <span class="time">12:30</span>
+            </div>
         </div>
         
+        <!-- Main Chat Area -->
         <div class="chat-main">
             <div class="header">
-                <div class="chat-header-info">
+                <div id="chat-header-info" class="chat-header-info">
                     <h4>Nureke</h4>
                     <span>online</span>
                 </div>
             </div>
 
-            <div class="chat-box" id="chat-box">
+            <!-- Chat Boxes for Each Conversation -->
+            <div class="chat-box active" id="nureke-chat">
                 <div class="message received">Hi, Alisher. How are you?</div>
                 <div class="message received">I think we need to meet and discuss about the book</div>
-                <div class="message received">Yerzhan will come also</div>
-                <div class="message received">Library, 13:30. Don't be late</div>
                 <div class="message sent">оќысай маѓза</div>
-                <!-- Add more messages as needed -->
             </div>
             
+            <div class="chat-box" id="yerzhan-chat">
+                <div class="message received">Did you finish reading?</div>
+                <div class="message sent">Not yet, but soon!</div>
+            </div>
+            
+            <div class="chat-box" id="group-chat">
+                <div class="message received">Aibek: Hey everyone, meeting at 2?</div>
+                <div class="message received">Alisher: Sounds good!</div>
+                <div class="message sent">I’ll be there!</div>
+            </div>
+            
+            <!-- Message Input -->
             <div class="message-input">
                 <input type="text" id="message" placeholder="Type a message..." />
                 <button onclick="sendMessage()">➤</button>
@@ -191,10 +214,28 @@ body, html {
         </div>
     </div>
     <script>
-        // script.js
+
+function switchChat(chatId) {
+    // Hide all chat boxes
+    const chatBoxes = document.querySelectorAll(".chat-box");
+    chatBoxes.forEach(box => box.classList.remove("active"));
+
+    // Show the selected chat box
+    document.getElementById(`${chatId}-chat`).classList.add("active");
+
+    // Update header info
+    const headerInfo = document.getElementById("chat-header-info");
+    if (chatId === "nureke") {
+        headerInfo.innerHTML = "<h4>Nureke</h4><span>online</span>";
+    } else if (chatId === "yerzhan") {
+        headerInfo.innerHTML = "<h4>Yerzhan</h4><span>online</span>";
+    } else if (chatId === "group") {
+        headerInfo.innerHTML = "<h4>Group Chat</h4><span>active</span>";
+    }
+}
 
 function sendMessage() {
-    const chatBox = document.getElementById("chat-box");
+    const activeChatBox = document.querySelector(".chat-box.active");
     const messageInput = document.getElementById("message");
     const messageText = messageInput.value.trim();
 
@@ -204,21 +245,21 @@ function sendMessage() {
     const messageElement = document.createElement("div");
     messageElement.classList.add("message", "sent");
     messageElement.innerText = messageText;
-    chatBox.appendChild(messageElement);
+    activeChatBox.appendChild(messageElement);
     
     // Clear input field
     messageInput.value = "";
 
     // Scroll chat to the bottom
-    chatBox.scrollTop = chatBox.scrollHeight;
+    activeChatBox.scrollTop = activeChatBox.scrollHeight;
 
     // Optionally simulate a response after a delay
     setTimeout(() => {
         const responseMessage = document.createElement("div");
         responseMessage.classList.add("message", "received");
         responseMessage.innerText = "Received: " + messageText;
-        chatBox.appendChild(responseMessage);
-        chatBox.scrollTop = chatBox.scrollHeight;
+        activeChatBox.appendChild(responseMessage);
+        activeChatBox.scrollTop = activeChatBox.scrollHeight;
     }, 1000);
 }
 
