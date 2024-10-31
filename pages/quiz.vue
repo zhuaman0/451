@@ -46,7 +46,7 @@ const secondversion = () => {
             </main>
         </section>  
         <div class="linee"></div>
-        <section class="quiz">
+        <section class="quizz">
             <div  class="prepares">
                 <h3>Enter QUIZ title</h3>
                 <input type="text" placeholder="Title">
@@ -241,7 +241,7 @@ const secondversion = () => {
         cursor: pointer;
 }
 
-.quiz{
+.quizz{
     height: 100%;
     margin: 0 auto;
     display: flex;
