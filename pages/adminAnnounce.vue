@@ -75,6 +75,7 @@
 .plus{
    height: 40px;
    width: 40px;
+   cursor: pointer;
    font-size: 40px;
    display: flex;
    justify-content: center;

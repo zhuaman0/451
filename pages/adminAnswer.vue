@@ -13,66 +13,69 @@ definePageMeta({
         <div class="container">
     <h1>Question 1</h1>
     <table>
-        <tr class="first">
-            <th>Index</th>
-            <th>Team name</th>
-            <th>Submit Time</th>
-            <th>Answer</th>
-            <th>Answer</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>Kuka x2</td>
-            <td>12.10.2024 <span class="highlighted">13:15</span></td>
-            <td>mal</td>
-            <td>mal</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Pythons</td>
-            <td></td>
-            <td>kniga</td>
-            <td>kniga</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Leaders</td>
-            <td></td>
-            <td>aman</td>
-            <td>aman</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>Leaders</td>
-            <td></td>
-            <td>kaany</td>
-            <td>kaany</td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>Leaders</td>
-            <td></td>
-            <td>kaneke</td>
-            <td>kaneke</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>Leaders</td>
-            <td></td>
-            <td>zhomeke</td>
-            <td>zhomeke</td>
-        </tr>
-        
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
 
-                <button class="edit-button">Edit</button>
-            </td>
-        </tr>
+        <tbody>
+            <tr class="first">
+                <th>Index</th>
+                <th>Team name</th>
+                <th>Submit Time</th>
+                <th>Answer</th>
+                <th>Answer</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Kuka x2</td>
+                <td>12.10.2024 <span class="highlighted">13:15</span></td>
+                <td>mal</td>
+                <td>mal</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Pythons</td>
+                <td></td>
+                <td>kniga</td>
+                <td>kniga</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Leaders</td>
+                <td></td>
+                <td>aman</td>
+                <td>aman</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Leaders</td>
+                <td></td>
+                <td>kaany</td>
+                <td>kaany</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Leaders</td>
+                <td></td>
+                <td>kaneke</td>
+                <td>kaneke</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Leaders</td>
+                <td></td>
+                <td>zhomeke</td>
+                <td>zhomeke</td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+    
+                    <button class="edit-button">Edit</button>
+                </td>
+            </tr>
+        </tbody>
     </table>
     
 </div>
@@ -132,7 +135,16 @@ h1 {
     font-size: 2rem;
     margin-bottom: 20px;
 }
-table {
+table{
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #282828;
+    color: #ffffff;
+    border: 2px solid #666;
+    border-radius: 18px;
+    overflow: hidden;
+}
+tbody {
     width: 100%;
     border-collapse: collapse;
     background-color: #282828;
